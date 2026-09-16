@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 
 
@@ -9,9 +10,9 @@ public class PendulumManager : MonoBehaviour
     private List<ArticulationBody> _weights = new List<ArticulationBody>();
 
     [SerializeField,Tooltip("実行後に非表示にするオブジェクトリスト")]
-    private List<GameObject> _hiddenList = new List<GameObject>(); 
+    private List<GameObject> _hiddenList = new List<GameObject>();
 
-
+    [Header("====== キャンバス =======")]
     [SerializeField, Tooltip("実行後に有効化するUI")]
     private GameObject _controllerCanvas;
     [SerializeField,Tooltip("実行後に無効化するUI")]
@@ -24,9 +25,9 @@ public class PendulumManager : MonoBehaviour
         foreach (var b in _weights)
         {
             b.enabled = false;
-            _controllerCanvas?.SetActive(true);
-            _scoreCanvas?.SetActive(false);
         }
+        _controllerCanvas?.SetActive(true);
+        _scoreCanvas?.SetActive(false);
         foreach (var b in _hiddenList) 
         {
             b.SetActive(true);
@@ -34,23 +35,18 @@ public class PendulumManager : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OnStart()
     {
-        foreach (var b in _weights)
+        for(int i = (_weights.Count - 1);i >= 0;--i)
         {
-            b.enabled = true;
-            _controllerCanvas?.SetActive(false);
-            _scoreCanvas?.SetActive(true);
+            _weights[i].enabled = true;
+            _weights[i].WakeUp();
         }
-        foreach (var b in _hiddenList)
+        _controllerCanvas?.SetActive(false);
+        _scoreCanvas?.SetActive(true);
+        foreach (var h in _hiddenList)
         {
-            b.SetActive(false);
+            h.SetActive(false);
         }
     }
 }

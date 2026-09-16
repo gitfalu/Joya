@@ -20,7 +20,7 @@ public class Bell : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, _basePosition, 1.0f);
+        transform.position = Vector3.Lerp(transform.position, _basePosition, Time.fixedDeltaTime * 10.0f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
