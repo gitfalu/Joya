@@ -37,10 +37,10 @@ public class PendulumManager : MonoBehaviour
 
     public void OnStart()
     {
-        for(int i = (_weights.Count - 1);i >= 0;--i)
+        foreach (var b in _weights)
         {
-            _weights[i].enabled = true;
-            _weights[i].WakeUp();
+            b.enabled = true;
+            b.WakeUp();
         }
         _controllerCanvas?.SetActive(false);
         _scoreCanvas?.SetActive(true);
