@@ -11,6 +11,7 @@ public class Hummer : MonoBehaviour
     private bool _isGoBroking;
 
     private bool _isBroken;
+    private bool _isIron;
 
     [SerializeField]
     private float _alwaysAccel = 0.02f;
@@ -29,6 +30,8 @@ public class Hummer : MonoBehaviour
 
     [SerializeField]
     private TMPro.TextMeshProUGUI _brokenTimer;
+
+    public bool IsIron => _isIron;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -82,6 +85,7 @@ public class Hummer : MonoBehaviour
 
     public void ChnageHummer(bool iron)
     {
+        _isIron = iron;
         if(iron)
         {
             _hummerImage.sprite = _ironHummer;

@@ -4524,8 +4524,8 @@ ArticulationBody:
   m_Enabled: 1
   serializedVersion: 5
   m_Mass: 1
-  m_ParentAnchorPosition: {x: -0.00000023841858, y: 8.000001, z: 0}
-  m_ParentAnchorRotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+  m_ParentAnchorPosition: {x: 0, y: 8, z: 0}
+  m_ParentAnchorRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_AnchorPosition: {x: 0, y: 0, z: 0}
   m_AnchorRotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
   m_MatchAnchors: 1
@@ -4624,8 +4624,8 @@ ArticulationBody:
   m_Enabled: 1
   serializedVersion: 5
   m_Mass: 0.4
-  m_ParentAnchorPosition: {x: 0, y: 3.1000013, z: 0}
-  m_ParentAnchorRotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+  m_ParentAnchorPosition: {x: 4.12, y: -1.6099997, z: 0}
+  m_ParentAnchorRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_AnchorPosition: {x: 0, y: 0, z: 0}
   m_AnchorRotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
   m_MatchAnchors: 1
@@ -4814,8 +4814,8 @@ ArticulationBody:
   m_Enabled: 1
   serializedVersion: 5
   m_Mass: 0.5
-  m_ParentAnchorPosition: {x: 0, y: 4.099999, z: 0}
-  m_ParentAnchorRotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+  m_ParentAnchorPosition: {x: -2.38, y: 6.64, z: 0}
+  m_ParentAnchorRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_AnchorPosition: {x: 0, y: 0, z: 0}
   m_AnchorRotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
   m_MatchAnchors: 1
@@ -5001,9 +5001,9 @@ MonoBehaviour:
   _alwaysAccel: 0.1
   _hummerImage: {fileID: 1733146}
   _ironHummer: {fileID: 4750651203034271755, guid: cc6023d6443618e4c8465b96b0424e0b, type: 3}
-  _ironWeight: 1
+  _ironWeight: 0.5
   _woodHummer: {fileID: 7440981132975211316, guid: 6963015f015a2ea408527ee9b142d6f8, type: 3}
-  _woodWeight: 0.5
+  _woodWeight: 0.25
   _brokenTimer: {fileID: 393012690}
 --- !u!114 &1541101481
 MonoBehaviour:
@@ -5469,6 +5469,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 2b0a7a9373a163e41a9136c5dd00da66, type: 3}
   - name: kakegoe
     clip: {fileID: 8300000, guid: db4379f78a9be9c4c9378e6dc3230fc1, type: 3}
+  - name: Goriyaku_2
+    clip: {fileID: 8300000, guid: c77e2614f42431f43b07ad3e3f48658f, type: 3}
 --- !u!82 &1864596300
 AudioSource:
   m_ObjectHideFlags: 0

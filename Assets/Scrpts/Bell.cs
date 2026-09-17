@@ -33,6 +33,7 @@ public class Bell : MonoBehaviour
     private bool _isStart = false;
     private bool _isGoriyaku = false;
     private bool _isLimit = false;
+    private bool _isIron = true;
 
     [SerializeField]
     private float _blinkingCycle = 0.2f;
@@ -190,7 +191,10 @@ public class Bell : MonoBehaviour
         Instantiate(_AnounceCanvas,_worldCanvas.transform);
         // ご利益フィーバー開始
         _backGroundManager.StartFever();
-        SoundManager.instance?.PlayBGM("kakegoe");
+        if (_isIron)
+            SoundManager.instance?.PlayBGM("kakegoe");
+        else
+            SoundManager.instance?.PlayBGM("Goriyaku_2");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -238,6 +242,8 @@ public class Bell : MonoBehaviour
                 _scoreText.text = "ご利益 " + _score.Goriyaku.ToString();
                 _timer += 10.0f;
                 _isGoriyaku = true;
+                if( collision.TryGetComponent<Hummer>(out Hummer ham))
+                    _isIron = ham.IsIron;
                 GoriyakuTimeStart();
             }
             else
