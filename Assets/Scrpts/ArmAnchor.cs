@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
-using static UnityEngine.Rendering.DebugUI;
 
 public class ArmAnchor : MonoBehaviour
 {

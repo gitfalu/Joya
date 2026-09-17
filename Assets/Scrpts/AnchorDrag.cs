@@ -6,6 +6,13 @@ public class AnchorDrag : MonoBehaviour
     private Vector3 offset;
     [SerializeField]
     private Transform _controlTrans;
+    [SerializeField]
+    private Transform _root;
+
+    private void Start()
+    {
+        RotationReset();
+    }
 
     void OnMouseDown()
     {
@@ -16,6 +23,7 @@ public class AnchorDrag : MonoBehaviour
     void OnMouseDrag()
     {
         _controlTrans.position = GetMouseWorldPos() + offset;
+        //RotationReset();
     }
 
     private Vector3 GetMouseWorldPos()
@@ -29,5 +37,10 @@ public class AnchorDrag : MonoBehaviour
         );
 
         return Camera.main.ScreenToWorldPoint(screenPos);
+    }
+
+    public void RotationReset()
+    {
+        transform.rotation = Quaternion.identity;
     }
 }

@@ -1,10 +1,11 @@
 using System.Collections.Generic;
-using System.Drawing;
+using UnityEngine.SceneManagement;
 using UnityEngine;
-
-
 public class PendulumManager : MonoBehaviour
 {
+    [Header("===== 有効化管理 ======")]
+    [SerializeField]
+    private TrailRenderer _trailRenderer;
 
     [SerializeField,Tooltip("実行した後に動く振り子のヒンジ")]
     private List<ArticulationBody> _weights = new List<ArticulationBody>();
@@ -28,11 +29,11 @@ public class PendulumManager : MonoBehaviour
         }
         _controllerCanvas?.SetActive(true);
         _scoreCanvas?.SetActive(false);
+        if(_trailRenderer != null) _trailRenderer.enabled = false;
         foreach (var b in _hiddenList) 
         {
             b.SetActive(true);
         }
-
     }
 
     public void OnStart()
@@ -41,12 +42,27 @@ public class PendulumManager : MonoBehaviour
         {
             b.enabled = true;
             b.WakeUp();
+            b.maxAngularVelocity = float.MaxValue;
+            b.linearVelocity+= new Vector3(0.0f,5.0f,0.0f);
         }
         _controllerCanvas?.SetActive(false);
         _scoreCanvas?.SetActive(true);
+        if (_trailRenderer != null) _trailRenderer.enabled = true;
         foreach (var h in _hiddenList)
         {
             h.SetActive(false);
         }
+
+        // カメラが近づく処理
+        var mainCam = Camera.main;
+        mainCam.transform.position = new Vector3(0.0f, -2.0f, -10.0f);
+        var camComp = mainCam.GetComponent<Camera>();
+        camComp.orthographicSize = 6.0f;
+        mainCam.GetComponent<CameraShake>().Initialize();
+    }
+
+    public void OnStop()
+    {
+        SceneManager.LoadScene("Game");
     }
 }
